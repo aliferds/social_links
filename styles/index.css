@@ -34,7 +34,7 @@ Style guide info:
   --font-semibold: 600;
   --font-bold: 700;
 
-  --primary: hsl(80, 75%, 30%);
+  --primary: #CA7FFF;
   --gray-700: hsl(0, 0%, 20%);
   --gray-800: hsl(0, 0%, 12.16%);
   --gray-900: hsl(0, 0%, 7.84%);
@@ -121,6 +121,7 @@ main {
 
 .social-links a {
   display: block;
+  position: relative;
 
   text-decoration: none;
   color: white;
@@ -130,15 +131,93 @@ main {
   padding: 0.75rem 1.5rem;
   border-radius: var(--br-10);
 
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, background 0.5s ease-in-out;
 }
 
 .social-links .social-item:not(:last-child){
   margin-bottom: var(--padding);
 }
 
-.social-links a:focus,
-.social-links a:hover {
+.github:hover, .github:focus {
+  background-color: hsl(0, 0%, 8%);
+}
+
+.linkedin:hover, .linkedin:focus {
+  background-color: #0072b1;
+}
+
+.portifolio:hover, .portifolio:focus {
+  /* #764BA2 → #667EEA */
+  background: #7dc7d5;
+  background: -moz-linear-gradient(45deg, #764BA2 30%, #667EEA 100%); 
+  background: -webkit-linear-gradient(45deg, #764BA2 30%, #667EEA 100%); 
+  background: linear-gradient(45deg, #764BA2 30%, #667EEA 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#764BA2', endColorstr='#667EEA',GradientType=1 );
+}
+
+.frontendMentor:hover, .frontendMentor:focus {
+  background: #7dc7d5;
+  background: -moz-linear-gradient(45deg, #2E3192 30%, #1BFFFF 100%); 
+  background: -webkit-linear-gradient(45deg, #2E3192 30%, #1BFFFF 100%); 
+  background: linear-gradient(45deg, #2E3192 30%, #1BFFFF 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2E3192', endColorstr='#1BFFFF',GradientType=1 );
+}
+
+.facebook:hover, .facebook:focus {
+  background-color: #1877f2;
+}
+/* .instagram:hover, .instagram:focus {
+  background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+} */
+
+.instagram::before {
+  content: 'Instagram';
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  position: absolute;
+  border-radius: var(--br-10);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Seu gradiente */
+  background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  
+  opacity: 0; /* Começa invisível */
+  transition: opacity 0.4s ease-in-out; /* Transiciona a opacidade */
+  z-index: 1; /* Garante que o gradiente esteja sobre o fundo inicial */
+}
+.instagram:hover::before,
+.instagram:focus::before {
+  opacity: 1; /* Torna-se totalmente visível */
+}
+
+.instagram > * {
+  position: relative;
+  z-index: 2;
+}
+
+.email:hover, .email:focus {
+  background-color: white;
+  color: black;
+}
+
+.whatsapp:hover, .whatsapp:focus {
+  background-color: var(--green);
+}
+
+
+.social-links .default-link:focus,
+.social-links .default-link:hover {
   background-color: var(--primary);
   color: var(--gray-900);
 }
